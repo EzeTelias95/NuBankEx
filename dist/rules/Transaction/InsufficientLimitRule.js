@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 class InsufficientLimitRule {
     execute(account, transaction) {
-        if (transaction.amount > account.availableLimit) {
+        if (account && transaction.amount > account.availableLimit) {
             return false;
         }
         return true;

@@ -1,11 +1,12 @@
 import Account from './types/Account';
 import Transaction from './types/Transaction';
 import IRule from "./rules/IRule";
-import AccountInitializedRule from "./rules/Transaction/AccountInitializedRule";
-import InsufficientLimitRule from './rules/Transaction/InsufficientLimitRule';
-import CardNotActiveRule from './rules/Transaction/CardNotActiveRule';
-import HighFreqSIntervalRule from './rules/Transaction/HighFreqSIntervalRule';
-import DoubledTransactionRule from './rules/Transaction/DoubledTransactionRule';
+import AccountInitializedRule from './rules/transaction/AccountInitializedRule';
+import CardNotActiveRule from './rules/transaction/CardNotActiveRule';
+import DoubledTransactionRule from './rules/transaction/DoubledTransactionRule';
+import HighFreqSIntervalRule from './rules/transaction/HighFreqSIntervalRule';
+import InsufficientLimitRule from './rules/transaction/InsufficientLimitRule';
+
 
 
 export default class TransactionEvaluator {

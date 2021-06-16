@@ -4,7 +4,7 @@ import Transaction from '../../types/Transaction';
 
 export default class InsufficientLimitRule implements IRule {
     execute(account: Account, transaction: Transaction): boolean {
-        if (transaction.amount > account.availableLimit){
+        if (account && transaction.amount > account.availableLimit){
             return false
         }
         return true;

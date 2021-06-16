@@ -1,20 +1,32 @@
-import Authorizer  from './Authorizer';
+import fs from 'fs';
+import Authorizer from './Authorizer';
 import Account from './types/Account';
 import Transaction from './types/Transaction';
+var stdin = process.openStdin();
 
-let account = new Account(true, 18000);
-let transaction = new Transaction("BurgerKing", 700, new Date());
-let transaction2 = new Transaction("BurgerKing", 750, new Date());
-let transaction3 = new Transaction("BurgerKing", 800, new Date());
+let authorizer = new Authorizer();
+stdin.addListener("data", function(input) {
 
+    let filePath = input.toString().trim();
+    let data = fs.readFile(filePath, ( e, d )=>{
+        let lines = d.toString().split("\r");
 
-let auth = new Authorizer();
-auth.addAccount(account);
-let result = auth.processTransaction(transaction);
+            lines.forEach((line) =>{    
+                let operation = JSON.parse(line);
 
-console.log(result);
-let result2 = auth.processTransaction(transaction2);
-console.log(result2);
+                if (operation.hasOwnProperty("account")){
+                    let account = new Account(operation.account["active-card"],operation.account["available-limit"]);
+                    console.log(authorizer.addAccount(account));
+                }
+                else {
+                    let transaction = operation.transaction;
+                    let newTransaction = new Transaction(transaction.merchant, parseInt(transaction.amount), transaction.time)
+                    console.log(authorizer.processTransaction(newTransaction));
+                }
+                
+            });
 
-let result3 = auth.processTransaction(transaction3);
-console.log(result3);
+        });
+    
+    
+});

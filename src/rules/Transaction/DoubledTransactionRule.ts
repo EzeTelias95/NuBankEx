@@ -7,7 +7,7 @@ export default class DoubledTransactionRule implements IRule {
     execute(account: Account, transaction: Transaction): boolean {
         let newDate = new Date(transaction.time);
         newDate.setMinutes(newDate.getMinutes() - 2)
-        let doubledTransactions = _.filter(account.getTransactionsFromDate(newDate),  (oldTransaction) => oldTransaction.merchant === transaction.merchant && oldTransaction.amount === transaction.amount)
+        let doubledTransactions = _.filter(account && account.getTransactionsFromDate(newDate),  (oldTransaction) => oldTransaction.merchant === transaction.merchant && oldTransaction.amount === transaction.amount)
         if (doubledTransactions.length === 0){
             return true
         }

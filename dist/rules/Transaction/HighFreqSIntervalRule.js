@@ -4,7 +4,7 @@ class HighFreqSIntervalRule {
     execute(account, transaction) {
         let newDate = new Date(transaction.time);
         newDate.setMinutes(newDate.getMinutes() - 3);
-        if (account.getTransactionsFromDate(newDate).length >= 2) {
+        if (account && account.getTransactionsFromDate(newDate).length >= 2) {
             return false;
         }
         return true;

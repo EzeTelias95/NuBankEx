@@ -8,7 +8,7 @@ class DoubledTransactionRule {
     execute(account, transaction) {
         let newDate = new Date(transaction.time);
         newDate.setMinutes(newDate.getMinutes() - 2);
-        let doubledTransactions = lodash_1.default.filter(account.getTransactionsFromDate(newDate), (oldTransaction) => oldTransaction.merchant === transaction.merchant && oldTransaction.amount === transaction.amount);
+        let doubledTransactions = lodash_1.default.filter(account && account.getTransactionsFromDate(newDate), (oldTransaction) => oldTransaction.merchant === transaction.merchant && oldTransaction.amount === transaction.amount);
         if (doubledTransactions.length === 0) {
             return true;
         }

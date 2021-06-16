@@ -2,10 +2,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 class CardNotActiveRule {
     execute(account, transaction) {
-        if (account.activeCard) {
-            return true;
+        if (account && !account.activeCard) {
+            return false;
         }
-        return false;
+        return true;
     }
     violationMessage() {
         return 'card-not-active';

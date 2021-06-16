@@ -19,7 +19,7 @@ class Account {
         return { "active-card": this.activeCard, "available-limit": this.availableLimit };
     }
     getTransactionsFromDate(date) {
-        return lodash_1.default.filter(this.transactions, (transaction) => transaction.time > date);
+        return lodash_1.default.filter(this.transactions, (transaction) => transaction.time >= date);
     }
 }
 exports.default = Account;

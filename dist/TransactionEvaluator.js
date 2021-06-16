@@ -3,11 +3,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const AccountInitializedRule_1 = __importDefault(require("./rules/Transaction/AccountInitializedRule"));
-const InsufficientLimitRule_1 = __importDefault(require("./rules/Transaction/InsufficientLimitRule"));
-const CardNotActiveRule_1 = __importDefault(require("./rules/Transaction/CardNotActiveRule"));
-const HighFreqSIntervalRule_1 = __importDefault(require("./rules/Transaction/HighFreqSIntervalRule"));
-const DoubledTransactionRule_1 = __importDefault(require("./rules/Transaction/DoubledTransactionRule"));
+const AccountInitializedRule_1 = __importDefault(require("./rules/transaction/AccountInitializedRule"));
+const CardNotActiveRule_1 = __importDefault(require("./rules/transaction/CardNotActiveRule"));
+const DoubledTransactionRule_1 = __importDefault(require("./rules/transaction/DoubledTransactionRule"));
+const HighFreqSIntervalRule_1 = __importDefault(require("./rules/transaction/HighFreqSIntervalRule"));
+const InsufficientLimitRule_1 = __importDefault(require("./rules/transaction/InsufficientLimitRule"));
 class TransactionEvaluator {
     constructor() {
         this._rules = [];

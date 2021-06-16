@@ -16,6 +16,7 @@ export default class Authorizer {
         }
         else{
             this.account = account;
+            return this.account.getStatus();
         }
     }
 

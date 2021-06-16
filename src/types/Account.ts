@@ -24,6 +24,6 @@ export default class Account {
     }
 
     public getTransactionsFromDate(date: Date): Array<Transaction> {
-        return _.filter( this.transactions, (transaction) => transaction.time > date );
+        return _.filter( this.transactions, (transaction) => transaction.time >= date );
     }
 }
