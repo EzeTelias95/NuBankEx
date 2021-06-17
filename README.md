@@ -9,7 +9,7 @@ In the project directory run the following line to install the project dependenc
 
 `npm install`
 
-To run the project run the following line
+To run the project, run the following line
 
 `npm start`
 
@@ -20,7 +20,7 @@ This will start a process that reads the input as file path on `stdin`
 ![page-view](img/example.png)
 </td></tr></table>
 
-This project is implemented on NodeJs and using Jest for testing.
+This project is implemented on NodeJs and Jest for testing.
 ## Documentation
 ### Authorizer
 
@@ -39,7 +39,9 @@ The Transaction Evaluator class contains a list of IRule implemented classes tha
         }
 ````
 
-If a new business rule needs to be added, an [IRule](./src/rules/IRule.ts) class should be implemented on the `./rules/transaction` 
+
+## Adding new business rules
+If a new business rule is required, an [IRule](./src/rules/IRule.ts) class should be implemented on the `./rules/transaction` 
 
 This interface contains two methods.
 - `execute(account: account, transaction: transaction)`: This method evaluates the transaction and account returning false if the rule is not matched

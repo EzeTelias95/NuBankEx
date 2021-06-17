@@ -24,10 +24,6 @@ stdin.addListener("data", function(input) {
                     let newTransaction = new Transaction(transaction.merchant, parseInt(transaction.amount), new Date(transaction.time))
                     console.log(authorizer.processTransaction(newTransaction));
                 }
-                
             });
-
         });
-    
-    
 });
