@@ -13,11 +13,11 @@ export default class Authorizer {
 
     public addAccount(account: Account){
         if (this.account){
-            return { "account": this.account ? this.account.getStatus(): {}, "violations": [ACCOUNT_ALREADY_INITIALIZED] };
+            return this.formatMessage( [ACCOUNT_ALREADY_INITIALIZED] );
         }
         else{
             this.account = account;
-            return { "account": this.account ? this.account.getStatus(): {}, "violations": [] }
+            return this.formatMessage( );
         }
     }
 
@@ -26,8 +26,11 @@ export default class Authorizer {
         if (violations.length === 0) {
             this.account.addTransaction(transaction);
         }
-        return { "account": this.account ? this.account.getStatus(): {}, "violations": violations }
+        return  this.formatMessage( violations );
     }
 
+    private formatMessage(violations?: string[]) {
+        return { "account": this.account ? this.account.getStatus(): {}, "violations": violations }
+    }
     
 }

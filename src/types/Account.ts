@@ -19,7 +19,7 @@ export default class Account {
         this.transactions.push(transaction);
     }
 
-    public getStatus(){ //TODO: Refactor 
+    public getStatus(){ 
         return { "active-card": this.activeCard, "available-limit": this.availableLimit };
     }
 

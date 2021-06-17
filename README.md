@@ -13,16 +13,15 @@ To run the project run the following line
 
 `npm start`
 
-This will start a process that reads the input as file `stdin`
+This will start a process that reads the input as file path on `stdin`
 
 
-## Documentation
 
 ![page-view](img/example.png)
 </td></tr></table>
 
 This project is implemented on NodeJs and using Jest for testing.
-
+## Documentation
 ### Authorizer
 
 The authorizer is an object that proccess transactions to an account if they go through the evaluator without any violations.
