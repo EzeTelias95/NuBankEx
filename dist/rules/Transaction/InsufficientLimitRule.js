@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+const messages_1 = require("../../strings/messages");
 class InsufficientLimitRule {
     execute(account, transaction) {
         if (account && transaction.amount > account.availableLimit) {
@@ -8,7 +9,7 @@ class InsufficientLimitRule {
         return true;
     }
     violationMessage() {
-        return 'insufficient-limit';
+        return messages_1.INSUFFICIENT_LIMIT;
     }
 }
 exports.default = InsufficientLimitRule;

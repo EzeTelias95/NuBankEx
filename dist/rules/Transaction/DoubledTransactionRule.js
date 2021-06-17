@@ -4,6 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const lodash_1 = __importDefault(require("lodash"));
+const messages_1 = require("../../strings/messages");
 class DoubledTransactionRule {
     execute(account, transaction) {
         let newDate = new Date(transaction.time);
@@ -15,7 +16,7 @@ class DoubledTransactionRule {
         return false;
     }
     violationMessage() {
-        return 'doubled-transaction';
+        return messages_1.DOUBLED_TRANSACTION;
     }
 }
 exports.default = DoubledTransactionRule;

@@ -59,9 +59,9 @@ test("transaction evaluator with high frequency transaction shoud get high frequ
 
 test("transaction evaluator with high frequency transaction and a doubled transaction shoud get both violations", () => {
   let account = new Account(true, 18000);
-  let transaction = new Transaction("BurgerKing", 700, dateTest);
-  let transaction2 = new Transaction("BurgerKing", 730, dateTest);
-  let highFreqTransaction = new Transaction("BurgerKing", 700, dateTest);
+  let transaction = new Transaction("BurgerKing", 700, new Date());
+  let transaction2 = new Transaction("BurgerKing", 730, new Date());
+  let highFreqTransaction = new Transaction("BurgerKing", 700, new Date());
   
   account.transactions = [transaction,transaction2];
   

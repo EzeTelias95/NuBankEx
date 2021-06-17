@@ -2,6 +2,7 @@ import IRule from "../IRule";
 import Account from '../../types/Account';
 import Transaction from '../../types/Transaction';
 import _ from 'lodash';
+import { DOUBLED_TRANSACTION } from "../../strings/messages";
 
 export default class DoubledTransactionRule implements IRule {
     execute(account: Account, transaction: Transaction): boolean {
@@ -14,6 +15,6 @@ export default class DoubledTransactionRule implements IRule {
         return false;        
     }
     violationMessage(): string {
-        return 'doubled-transaction';
+        return DOUBLED_TRANSACTION;
     }
 }

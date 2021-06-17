@@ -1,6 +1,7 @@
 import IRule from "../IRule";
 import Account from '../../types/Account';
 import Transaction from '../../types/Transaction';
+import { INSUFFICIENT_LIMIT } from "../../strings/messages";
 
 export default class InsufficientLimitRule implements IRule {
     execute(account: Account, transaction: Transaction): boolean {
@@ -10,6 +11,6 @@ export default class InsufficientLimitRule implements IRule {
         return true;
     }
     violationMessage(): string {
-        return 'insufficient-limit';
+        return INSUFFICIENT_LIMIT;
     }
 }

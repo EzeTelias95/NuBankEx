@@ -73,7 +73,7 @@ test("authorizer should process one transaction and get account not initialized 
 });
 
 test("authorizer should process three transactions in less than three minutes and get high frequency small interval violations", () => {
-    let account = new Account(true, 18000);
+    let account = new Account(true, 14000);
     let auth = new Authorizer();
     auth.addAccount(account);
     let transaction = new Transaction("BurgerKing", 700, new Date());

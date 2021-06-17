@@ -1,3 +1,4 @@
+import { ACCOUNT_ALREADY_INITIALIZED } from "./strings/messages";
 import TransactionEvaluator from "./TransactionEvaluator";
 import Account from "./types/Account";
 import Transaction from "./types/Transaction";
@@ -12,11 +13,11 @@ export default class Authorizer {
 
     public addAccount(account: Account){
         if (this.account){
-            return "account-already-initialized";
+            return { "account": this.account ? this.account.getStatus(): {}, "violations": [ACCOUNT_ALREADY_INITIALIZED] };
         }
         else{
             this.account = account;
-            return this.account.getStatus();
+            return { "account": this.account ? this.account.getStatus(): {}, "violations": [] }
         }
     }
 

@@ -2,13 +2,14 @@ import fs from 'fs';
 import Authorizer from './Authorizer';
 import Account from './types/Account';
 import Transaction from './types/Transaction';
-var stdin = process.openStdin();
 
-let authorizer = new Authorizer();
+var stdin = process.openStdin();
+console.log()
 stdin.addListener("data", function(input) {
 
     let filePath = input.toString().trim();
     let data = fs.readFile(filePath, ( e, d )=>{
+        let authorizer = new Authorizer();
         let lines = d.toString().split("\r");
 
             lines.forEach((line) =>{    
@@ -20,7 +21,7 @@ stdin.addListener("data", function(input) {
                 }
                 else {
                     let transaction = operation.transaction;
-                    let newTransaction = new Transaction(transaction.merchant, parseInt(transaction.amount), transaction.time)
+                    let newTransaction = new Transaction(transaction.merchant, parseInt(transaction.amount), new Date(transaction.time))
                     console.log(authorizer.processTransaction(newTransaction));
                 }
                 

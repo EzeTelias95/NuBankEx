@@ -1,6 +1,7 @@
 import IRule from "../IRule";
 import Account from '../../types/Account';
 import Transaction from '../../types/Transaction';
+import { CARD_NOT_ACTIVE } from "../../strings/messages";
 
 export default class CardNotActiveRule implements IRule {
     execute(account: Account, transaction: Transaction): boolean {
@@ -10,6 +11,6 @@ export default class CardNotActiveRule implements IRule {
         return true;
     }
     violationMessage(): string {
-        return 'card-not-active';
+        return CARD_NOT_ACTIVE;
     }
 }
